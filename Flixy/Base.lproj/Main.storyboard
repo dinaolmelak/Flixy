@@ -1,24 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movies View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MoviesViewController" customModule="Flixy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k90-wv-IcO" customClass="M">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="184" id="kVU-Pi-XWT">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="184"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kVU-Pi-XWT" id="grv-wg-4p6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Fb-EJ-BIF">
+                                                    <rect key="frame" x="15" y="11" width="144" height="162"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="2Fb-EJ-BIF" secondAttribute="height" multiplier="8:9" id="kE1-sA-vTo"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf9-s1-cMo">
+                                                    <rect key="frame" x="167" y="11" width="185" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vey-8X-FCc">
+                                                    <rect key="frame" x="167" y="39.5" width="185" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2Fb-EJ-BIF" firstAttribute="top" secondItem="grv-wg-4p6" secondAttribute="topMargin" id="4LK-ZJ-Xrt"/>
+                                                <constraint firstItem="zf9-s1-cMo" firstAttribute="leading" secondItem="2Fb-EJ-BIF" secondAttribute="trailing" constant="8" id="Gnx-eB-bja"/>
+                                                <constraint firstItem="zf9-s1-cMo" firstAttribute="top" secondItem="grv-wg-4p6" secondAttribute="topMargin" id="Jpk-tg-1yN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zf9-s1-cMo" secondAttribute="trailing" constant="8" id="LKd-hz-N7P"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vey-8X-FCc" secondAttribute="trailing" constant="8" id="WA8-7q-1fX"/>
+                                                <constraint firstItem="2Fb-EJ-BIF" firstAttribute="leading" secondItem="grv-wg-4p6" secondAttribute="leadingMargin" id="btp-bG-MID"/>
+                                                <constraint firstItem="vey-8X-FCc" firstAttribute="leading" secondItem="2Fb-EJ-BIF" secondAttribute="trailing" constant="8" id="fxX-gh-ORs"/>
+                                                <constraint firstItem="vey-8X-FCc" firstAttribute="top" secondItem="zf9-s1-cMo" secondAttribute="bottom" constant="8" id="iVT-Ab-imi"/>
+                                                <constraint firstItem="2Fb-EJ-BIF" firstAttribute="bottom" secondItem="grv-wg-4p6" secondAttribute="bottomMargin" id="khl-23-43E"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="vey-8X-FCc" secondAttribute="bottom" constant="50" id="u2h-a6-0Cd"/>
+                                                <constraint firstItem="2Fb-EJ-BIF" firstAttribute="top" secondItem="grv-wg-4p6" secondAttribute="topMargin" id="ucm-cs-xc3"/>
+                                                <constraint firstItem="2Fb-EJ-BIF" firstAttribute="leading" secondItem="grv-wg-4p6" secondAttribute="leadingMargin" id="wA0-b3-k0a"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="k90-wv-IcO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="5N0-sM-fke"/>
+                            <constraint firstItem="k90-wv-IcO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Art-vk-SE8"/>
+                            <constraint firstItem="k90-wv-IcO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="F3h-L0-1OL"/>
+                            <constraint firstItem="k90-wv-IcO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Jbb-tv-Pfn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="132" y="95.802098950524751"/>
         </scene>
     </scenes>
 </document>
