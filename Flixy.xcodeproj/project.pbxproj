@@ -13,6 +13,7 @@
 		C0B2117E239060B70035F412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B2117D239060B70035F412 /* Assets.xcassets */; };
 		C0B21181239060B70035F412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B2117F239060B70035F412 /* LaunchScreen.storyboard */; };
 		C0B211892390657B0035F412 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B211882390657B0035F412 /* MoviesViewController.swift */; };
+		C0B2118B239079D40035F412 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B2118A239079D40035F412 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C0B21180239060B70035F412 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0B21182239060B70035F412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0B211882390657B0035F412 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		C0B2118A239079D40035F412 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				C0B2117F239060B70035F412 /* LaunchScreen.storyboard */,
 				C0B21182239060B70035F412 /* Info.plist */,
 				C0B211882390657B0035F412 /* MoviesViewController.swift */,
+				C0B2118A239079D40035F412 /* MovieCell.swift */,
 			);
 			path = Flixy;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				C0B21175239060B20035F412 /* AppDelegate.swift in Sources */,
 				C0B21177239060B20035F412 /* SceneDelegate.swift in Sources */,
+				C0B2118B239079D40035F412 /* MovieCell.swift in Sources */,
 				C0B211892390657B0035F412 /* MoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
