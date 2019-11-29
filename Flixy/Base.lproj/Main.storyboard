@@ -55,6 +55,7 @@
                                                 <constraint firstItem="2Fb-EJ-BIF" firstAttribute="leading" secondItem="grv-wg-4p6" secondAttribute="leadingMargin" id="gik-zy-LZ0"/>
                                                 <constraint firstItem="2Fb-EJ-BIF" firstAttribute="top" secondItem="zf9-s1-cMo" secondAttribute="top" id="hhI-re-0NB"/>
                                                 <constraint firstItem="vey-8X-FCc" firstAttribute="top" secondItem="zf9-s1-cMo" secondAttribute="bottom" constant="8" id="iVT-Ab-imi"/>
+                                                <constraint firstItem="2Fb-EJ-BIF" firstAttribute="top" secondItem="grv-wg-4p6" secondAttribute="topMargin" id="jFl-qU-TN2"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="vey-8X-FCc" secondAttribute="bottom" constant="50" id="u2h-a6-0Cd"/>
                                             </constraints>
                                         </tableViewCellContentView>
