@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies View Controller-->
+        <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MoviesViewController" customModule="Flixy" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,37 +26,42 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Fb-EJ-BIF">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Fb-EJ-BIF">
                                                     <rect key="frame" x="15" y="11" width="120" height="162"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="zWp-hM-zOb"/>
+                                                        <constraint firstAttribute="width" secondItem="2Fb-EJ-BIF" secondAttribute="height" multiplier="20:27" id="8sw-qd-bee"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="yhH-ON-lhH"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf9-s1-cMo">
-                                                    <rect key="frame" x="143" y="11" width="209" height="24"/>
+                                                    <rect key="frame" x="143" y="19" width="209" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="PgS-OT-GKE"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="209" id="UhH-Xv-hi4"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vey-8X-FCc">
-                                                    <rect key="frame" x="143" y="43" width="209" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vey-8X-FCc">
+                                                    <rect key="frame" x="143" y="51" width="209" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="209" id="kb9-G1-Odc"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="zf9-s1-cMo" firstAttribute="top" secondItem="grv-wg-4p6" secondAttribute="topMargin" id="Jpk-tg-1yN"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="zf9-s1-cMo" secondAttribute="trailing" constant="8" id="LKd-hz-N7P"/>
-                                                <constraint firstItem="2Fb-EJ-BIF" firstAttribute="bottom" secondItem="grv-wg-4p6" secondAttribute="bottomMargin" id="TSS-2a-HMc"/>
+                                                <constraint firstItem="zf9-s1-cMo" firstAttribute="top" secondItem="grv-wg-4p6" secondAttribute="topMargin" constant="8" id="Cvc-tQ-jxQ"/>
+                                                <constraint firstItem="vey-8X-FCc" firstAttribute="top" secondItem="zf9-s1-cMo" secondAttribute="bottom" constant="8" id="HZW-zQ-ir2"/>
                                                 <constraint firstItem="zf9-s1-cMo" firstAttribute="leading" secondItem="2Fb-EJ-BIF" secondAttribute="trailing" constant="8" id="V46-xx-ro5"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vey-8X-FCc" secondAttribute="trailing" constant="8" id="WA8-7q-1fX"/>
-                                                <constraint firstItem="vey-8X-FCc" firstAttribute="leading" secondItem="2Fb-EJ-BIF" secondAttribute="trailing" constant="8" id="YZu-vq-HEo"/>
                                                 <constraint firstItem="2Fb-EJ-BIF" firstAttribute="leading" secondItem="grv-wg-4p6" secondAttribute="leadingMargin" id="gik-zy-LZ0"/>
-                                                <constraint firstItem="2Fb-EJ-BIF" firstAttribute="top" secondItem="zf9-s1-cMo" secondAttribute="top" id="hhI-re-0NB"/>
-                                                <constraint firstItem="vey-8X-FCc" firstAttribute="top" secondItem="zf9-s1-cMo" secondAttribute="bottom" constant="8" id="iVT-Ab-imi"/>
                                                 <constraint firstItem="2Fb-EJ-BIF" firstAttribute="top" secondItem="grv-wg-4p6" secondAttribute="topMargin" id="jFl-qU-TN2"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="vey-8X-FCc" secondAttribute="bottom" constant="50" id="u2h-a6-0Cd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vey-8X-FCc" secondAttribute="trailing" constant="8" id="l2x-jn-UCZ"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="vey-8X-FCc" secondAttribute="bottom" constant="8" id="pIo-kG-JYC"/>
+                                                <constraint firstItem="vey-8X-FCc" firstAttribute="leading" secondItem="2Fb-EJ-BIF" secondAttribute="trailing" constant="8" id="skz-c9-wUJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -77,7 +82,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="et3-aL-WkO"/>
+                    <navigationItem key="navigationItem" title="Movies" id="et3-aL-WkO"/>
                     <connections>
                         <outlet property="tableView" destination="k90-wv-IcO" id="pJF-7u-OIi"/>
                     </connections>
