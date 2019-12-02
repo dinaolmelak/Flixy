@@ -68,14 +68,29 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
 
-    /*
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("This row is selected \(indexPath.row)")
+        
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let tableViewCell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: tableViewCell)!
+        let movie = movies[indexPath.row]
+        print(movie["overview"] as! String)
+        
+        let detailSegue = segue.destination as! DetailViewController
+        detailSegue.movie = movie
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        print("loading")
     }
-    */
+    
 
 }
