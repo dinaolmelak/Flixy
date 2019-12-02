@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class DetailViewController: UIViewController {
 
@@ -18,16 +19,44 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // print(movie["title"])
-        // self.posterImageView.center.x -= self.view.bounds.width
         // Do any additional setup after loading the view.
+        // get the label
+        movieOverviewLabel.text = movie["overview"] as? String
+        movieTitleLabel.text = movie["title"] as? String
+        // get the image
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterPath = movie["poster_path"] as! String
+        let posterURL = URL(string: baseUrl + posterPath)!
+        
+        posterImageView.af_setImage(withURL: posterURL)
+        
+        let backdropPath = movie["backdrop_path"] as! String
+        let backdropPosterURL = URL(string: "https://image.tmdb.org/t/p/w1280" + backdropPath)!
+        
+        backgroundPosterImageView.af_setImage(withURL: backdropPosterURL)
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        posterImageView.alpha = 0.3
+        self.movieOverviewLabel.alpha = 0.3
+    }
     override func viewDidAppear(_ animated: Bool) {
-//        UIView.animate(withDuration: 1) {
-//            self.posterImageView.center.x += self.view.bounds.width
-//        }
+        self.startUpAnimation()
+    }
+    func startUpAnimation(){
+        UIView.animate(withDuration: 2) {
+            self.posterImageView.alpha = 1.0
+        }
+        UIView.animate(withDuration: 1, animations: {
+            self.movieTitleLabel.center.y += 10.0
+        }) { (Bool) in
+            UIView.animate(withDuration: 1) {
+                self.movieTitleLabel.center.y -= 10.0
+            }
+        }
+        UIView.animate(withDuration: 2) {
+            self.movieOverviewLabel.alpha = 1.0
+        }
     }
     /*
     // MARK: - Navigation
