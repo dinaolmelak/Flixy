@@ -138,12 +138,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZZ-dx-rsV">
+                                <rect key="frame" x="151" y="315" width="216" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="OZm-a1-28H" firstAttribute="centerY" secondItem="VuC-5w-xlO" secondAttribute="bottom" id="2b9-Qf-OhM"/>
                             <constraint firstItem="VuC-5w-xlO" firstAttribute="leading" secondItem="0PF-fm-GAV" secondAttribute="leading" id="5Jc-LP-Im3"/>
                             <constraint firstItem="OZm-a1-28H" firstAttribute="leading" secondItem="0PF-fm-GAV" secondAttribute="leading" constant="16" id="5Pv-FX-j7A"/>
+                            <constraint firstItem="iZZ-dx-rsV" firstAttribute="leading" secondItem="OZm-a1-28H" secondAttribute="trailing" constant="8" id="HP4-Hu-0aV"/>
                             <constraint firstItem="VuC-5w-xlO" firstAttribute="trailing" secondItem="0PF-fm-GAV" secondAttribute="trailing" id="Jnj-O8-UjK"/>
                             <constraint firstItem="0PF-fm-GAV" firstAttribute="trailing" secondItem="A4n-13-6ET" secondAttribute="trailing" constant="16" id="NG6-wr-qp5"/>
                             <constraint firstItem="SQA-Ny-yYD" firstAttribute="leading" secondItem="OZm-a1-28H" secondAttribute="trailing" constant="8" id="NX2-Wm-Vdc"/>
@@ -152,6 +159,8 @@
                             <constraint firstItem="A4n-13-6ET" firstAttribute="leading" secondItem="0PF-fm-GAV" secondAttribute="leading" constant="16" id="TQx-mG-pgg"/>
                             <constraint firstItem="SQA-Ny-yYD" firstAttribute="top" secondItem="VuC-5w-xlO" secondAttribute="bottom" constant="24" id="WEK-yv-eTA"/>
                             <constraint firstItem="VuC-5w-xlO" firstAttribute="top" secondItem="0PF-fm-GAV" secondAttribute="top" id="X8P-nW-IJL"/>
+                            <constraint firstItem="iZZ-dx-rsV" firstAttribute="top" secondItem="SQA-Ny-yYD" secondAttribute="bottom" constant="4" id="gDP-mH-TAH"/>
+                            <constraint firstItem="0PF-fm-GAV" firstAttribute="trailing" secondItem="iZZ-dx-rsV" secondAttribute="trailing" constant="8" id="qLh-Tr-6Y5"/>
                             <constraint firstItem="VuC-5w-xlO" firstAttribute="height" secondItem="e3I-qO-mVj" secondAttribute="height" multiplier="1:3" id="vew-gp-0eH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0PF-fm-GAV"/>
@@ -159,6 +168,7 @@
                     <navigationItem key="navigationItem" id="uog-wX-gbB"/>
                     <connections>
                         <outlet property="backgroundPosterImageView" destination="VuC-5w-xlO" id="RCV-pd-fay"/>
+                        <outlet property="movieDateLabel" destination="iZZ-dx-rsV" id="SIs-Vm-qdc"/>
                         <outlet property="movieOverviewLabel" destination="A4n-13-6ET" id="qxt-Q1-uhT"/>
                         <outlet property="movieTitleLabel" destination="SQA-Ny-yYD" id="gMK-iP-DTc"/>
                         <outlet property="posterImageView" destination="OZm-a1-28H" id="aMx-dc-Y3n"/>

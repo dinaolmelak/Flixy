@@ -16,13 +16,16 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieOverviewLabel: UILabel!
+    @IBOutlet weak var movieDateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // get the label
+        print(movie)
         movieOverviewLabel.text = movie["overview"] as? String
         movieTitleLabel.text = movie["title"] as? String
+        movieDateLabel.text = movie["release_date"] as? String
         // get the image
         let baseUrl = "https://image.tmdb.org/t/p/w342"
         let posterPath = movie["poster_path"] as! String
@@ -39,6 +42,7 @@ class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         posterImageView.alpha = 0.3
         self.movieOverviewLabel.alpha = 0.3
+        self.movieDateLabel.alpha = 0.3
     }
     override func viewDidAppear(_ animated: Bool) {
         self.startUpAnimation()
@@ -56,7 +60,9 @@ class DetailViewController: UIViewController {
         }
         UIView.animate(withDuration: 2) {
             self.movieOverviewLabel.alpha = 1.0
+            self.movieDateLabel.alpha = 1.0
         }
+        
     }
     /*
     // MARK: - Navigation
