@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJF-Pt-ICs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-522" y="1532"/>
+            <point key="canvasLocation" x="-55" y="1628"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="DRI-Fd-tlW">
@@ -222,7 +222,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="181" height="213"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kEF-71-SwO">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kEF-71-SwO">
                                                     <rect key="frame" x="0.0" y="0.0" width="181" height="213"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="213" id="803-rr-1I0"/>
@@ -245,6 +245,7 @@
                                         <size key="customSize" width="181" height="213"/>
                                         <connections>
                                             <outlet property="posterImageView" destination="kEF-71-SwO" id="Z8r-b4-E5W"/>
+                                            <segue destination="VDE-PA-oSi" kind="show" id="Lmy-sO-Vpi"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -292,4 +293,7 @@
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Lmy-sO-Vpi"/>
+    </inferredMetricsTieBreakers>
 </document>
