@@ -12,14 +12,14 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 
 #### BONUS
 - [x] (2pts) User can tap a poster in the collection view to see a detail screen of that movie.
-- [ ] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
+- [x] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
 ### App Walkthough GIF
 
-<img src="https://user-images.githubusercontent.com/32272045/70370620-d79c7880-188e-11ea-8ddf-95e71f21e03b.gif" width=250><br>
+<img src="https://user-images.githubusercontent.com/32272045/70370620-d79c7880-188e-11ea-8ddf-95e71f21e03b.gif" width=250><br> <img src="https://user-images.githubusercontent.com/32272045/70387182-6b417800-1967-11ea-882c-b9d03e1cdaf6.gif" width=250><br>
 
 ### Notes
-One challenge I faced was when setting up the CollectionView. Realizing that the collection view works exactly like a tableView helped me constrain it, thereby enlarging the images
+One challenge I faced was when setting up the CollectionView. Realizing that the collection view works exactly like a tableView helped me constrain it, thereby enlarging the images.
 
 ---
 

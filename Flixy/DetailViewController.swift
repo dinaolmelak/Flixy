@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // get the label
-        print(movie)
+        //print(movie)
         movieOverviewLabel.text = movie["overview"] as? String
         movieTitleLabel.text = movie["title"] as? String
         movieDateLabel.text = movie["release_date"] as? String
@@ -64,14 +64,17 @@ class DetailViewController: UIViewController {
         }
         
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let trailerSegue = segue.destination as! TrailerViewController
+        trailerSegue.movie = movie
+        
     }
-    */
+    
 
 }

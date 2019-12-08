@@ -18,6 +18,7 @@
 		C0B2118B239079D40035F412 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B2118A239079D40035F412 /* MovieCell.swift */; };
 		C0C4FCE1239B6D2200040381 /* MovieGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4FCE0239B6D2200040381 /* MovieGridViewController.swift */; };
 		C0C4FCE3239B781700040381 /* MovieGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4FCE2239B781600040381 /* MovieGridCell.swift */; };
+		C0E3673B239CCAE800C84550 /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E3673A239CCAE800C84550 /* TrailerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C0B2118A239079D40035F412 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		C0C4FCE0239B6D2200040381 /* MovieGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridViewController.swift; sourceTree = "<group>"; };
 		C0C4FCE2239B781600040381 /* MovieGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridCell.swift; sourceTree = "<group>"; };
+		C0E3673A239CCAE800C84550 /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
 		CD4DE1B16F463A700A0EA92A /* Pods_Flixy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flixy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				C051FB012394FCC70048E02B /* DetailViewController.swift */,
 				C0C4FCE0239B6D2200040381 /* MovieGridViewController.swift */,
 				C0C4FCE2239B781600040381 /* MovieGridCell.swift */,
+				C0E3673A239CCAE800C84550 /* TrailerViewController.swift */,
 			);
 			path = Flixy;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E3673B239CCAE800C84550 /* TrailerViewController.swift in Sources */,
 				C0B21175239060B20035F412 /* AppDelegate.swift in Sources */,
 				C0B21177239060B20035F412 /* SceneDelegate.swift in Sources */,
 				C051FB022394FCC70048E02B /* DetailViewController.swift in Sources */,

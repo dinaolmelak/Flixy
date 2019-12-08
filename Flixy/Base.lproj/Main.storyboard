@@ -124,13 +124,17 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="222.5"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OZm-a1-28H">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OZm-a1-28H">
                                 <rect key="frame" x="16" y="176" width="127" height="181"/>
                                 <color key="backgroundColor" red="0.38846325999999998" green="0.65191998259999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="127" id="7Eh-T8-rKe"/>
                                     <constraint firstAttribute="height" constant="181" id="CqW-q1-53N"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vbw-ma-Nns" appends="YES" id="dgU-ix-4Pg"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4n-13-6ET">
                                 <rect key="frame" x="16" y="365" width="343" height="20.5"/>
@@ -175,8 +179,49 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJF-Pt-ICs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vbw-ma-Nns">
+                    <connections>
+                        <segue destination="XyJ-2q-oSz" kind="show" identifier="PosterSegue" id="Mu1-RO-RvY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-55" y="1628"/>
+        </scene>
+        <!--Trailer View Controller-->
+        <scene sceneID="Kg1-Es-ftR">
+            <objects>
+                <viewController id="XyJ-2q-oSz" customClass="TrailerViewController" customModule="Flixy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1ZU-uf-jFO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dY5-t9-8B9">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dY5-t9-8B9" firstAttribute="top" secondItem="olk-b2-7p5" secondAttribute="top" id="57Q-Fz-1js"/>
+                            <constraint firstItem="olk-b2-7p5" firstAttribute="bottom" secondItem="dY5-t9-8B9" secondAttribute="bottom" id="Lpv-Xq-yIc"/>
+                            <constraint firstItem="dY5-t9-8B9" firstAttribute="leading" secondItem="olk-b2-7p5" secondAttribute="leading" id="Opm-x4-B3G"/>
+                            <constraint firstItem="dY5-t9-8B9" firstAttribute="top" secondItem="olk-b2-7p5" secondAttribute="top" id="isK-Oh-zPo"/>
+                            <constraint firstItem="dY5-t9-8B9" firstAttribute="trailing" secondItem="olk-b2-7p5" secondAttribute="trailing" id="xi6-qh-CcP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="olk-b2-7p5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="o92-g6-p81"/>
+                    <connections>
+                        <outlet property="trailerWebView" destination="dY5-t9-8B9" id="lqO-13-bPV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue7-vd-d5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-55.200000000000003" y="2400.4497751124441"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="DRI-Fd-tlW">
