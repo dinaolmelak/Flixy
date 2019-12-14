@@ -13,14 +13,31 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     var movies = [[String:Any]]()
+    var pageNumber = 1
+    var refresher: UIRefreshControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        refresher = UIRefreshControl()
+        self.refresher.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        self.tableView.addSubview(refresher)
+        tableView.insertSubview(refresher, at: 0)
         
-        let movieURL = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
+        getMovies()
+
+    }
+    @objc func onRefresh(){
+        
+        getMovies()
+        print("Refresh")
+        refresher.endRefreshing()
+    }
+    func getMovies(){
+        pageNumber = 1
+        let movieURL = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=28f10e36fa09f2d464dd184da2a57b39&language=en-US&page=\(pageNumber)")!
         let request = URLRequest(url: movieURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
         let task = session.dataTask(with: request){(data, response, error) in
@@ -30,15 +47,33 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 // get the array of movies
-            
-                
                 // store the movies in a property to be used else where
                 self.movies  = dataDictionary["results"] as! [[String:Any]]
                 
                 // reload table view data
                 self.tableView.reloadData()
+            }
+            
+        }
+        task.resume()
+    }
+    func getMoreMovies(){
+        pageNumber += 1
+        let movieURL = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=28f10e36fa09f2d464dd184da2a57b39&language=en-US&page=\(pageNumber)")!
+        let request = URLRequest(url: movieURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
+        let task = session.dataTask(with: request){(data, response, error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                // get the array of movies
+                // store the movies in a property to be used else where
+                self.movies += dataDictionary["results"] as! [[String:Any]]
                 
-                
+                // reload table view data
+                self.tableView.reloadData()
             }
             
         }
@@ -59,15 +94,28 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         cell.movieDescriptionLabel.text = movieCaption
         // get the movie poster
         let baseUrl = "https://image.tmdb.org/t/p/w342"
-        let posterPath = movie["poster_path"] as! String
-        let posterURL = URL(string: baseUrl + posterPath)!
+        if let posterPath = movie["poster_path"] as? String{
+            let posterURL = URL(string: baseUrl + posterPath)!
+            cell.movieImageView.af_setImage(withURL: posterURL)
+        } else{
+            cell.movieImageView.image = #imageLiteral(resourceName: "Ice")
+        }
         
-        cell.movieImageView.af_setImage(withURL: posterURL)
+        
+        
         
         
         return cell
     }
 
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //print("here")
+        if(indexPath.row + 1 == movies.count ){
+            getMoreMovies()
+            print("Got it!...")
+        }
+        
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("This row is selected \(indexPath.row)")

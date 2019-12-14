@@ -28,15 +28,20 @@ class DetailViewController: UIViewController {
         movieDateLabel.text = movie["release_date"] as? String
         // get the image
         let baseUrl = "https://image.tmdb.org/t/p/w342"
-        let posterPath = movie["poster_path"] as! String
-        let posterURL = URL(string: baseUrl + posterPath)!
+        if let posterPath = movie["poster_path"] as? String{
+            let posterURL = URL(string: baseUrl + posterPath)!
+            posterImageView.af_setImage(withURL: posterURL)
+        } else{
+            posterImageView.image = #imageLiteral(resourceName: "Ice")
+        }
         
-        posterImageView.af_setImage(withURL: posterURL)
         
-        let backdropPath = movie["backdrop_path"] as! String
-        let backdropPosterURL = URL(string: "https://image.tmdb.org/t/p/w1280" + backdropPath)!
-        
-        backgroundPosterImageView.af_setImage(withURL: backdropPosterURL)
+        if let backdropPath = movie["backdrop_path"] as? String{
+            let backdropPosterURL = URL(string: "https://image.tmdb.org/t/p/w1280" + backdropPath)!
+            backgroundPosterImageView.af_setImage(withURL: backdropPosterURL)
+        } else{
+            backgroundPosterImageView.image = #imageLiteral(resourceName: "Ice")
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

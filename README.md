@@ -35,6 +35,12 @@ One challenge I faced was when setting up the CollectionView. Realizing that the
 #### BONUS
 - [x] (2pt) User can view the app on various device sizes and orientations.
 - [x] (1pt) Run your app on a real device.
+#### CUSTOM
+- [x] Implemented scroll down to Refresh
+- [x] Load more Movies when User gets to the bottom
+- [x] Added a backup picture in case their is no poster image or backdrop image
+
+<img src="https://user-images.githubusercontent.com/32272045/70847871-2fa72200-1e2f-11ea-8c43-94da6e4417fb.gif" width=250>
 
 ### App Walkthough GIF
 
