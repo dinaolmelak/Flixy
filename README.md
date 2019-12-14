@@ -46,10 +46,10 @@ One challenge I faced was when setting up the CollectionView. Realizing that the
 ### App Walkthough GIF
 
 #### iPhone 8, iPhone 11
-<img src="https://user-images.githubusercontent.com/32272045/69838990-64a25a80-121b-11ea-8a46-55343ec83e07.gif" width=250><img src='https://user-images.githubusercontent.com/32272045/69839447-345bbb80-121d-11ea-9923-4c826f702669.gif' width=250><br>
+<img src="https://user-images.githubusercontent.com/32272045/69838990-64a25a80-121b-11ea-8a46-55343ec83e07.gif" width=250><img src='https://user-images.githubusercontent.com/32272045/69839447-345bbb80-121d-11ea-9923-4c826f702669.gif' width=200><br>
 
 #### iPhone 8, iPhone11 on Landscape
-<img src='https://user-images.githubusercontent.com/32272045/69839655-117dd700-121e-11ea-9243-6209139e3bdf.gif' width=250><img src='https://user-images.githubusercontent.com/32272045/69839983-784fc000-121f-11ea-9eeb-2a5c6d4c3adb.gif' width=250><br>
+<img src='https://user-images.githubusercontent.com/32272045/69839655-117dd700-121e-11ea-9243-6209139e3bdf.gif' width=250><img src='https://user-images.githubusercontent.com/32272045/69839983-784fc000-121f-11ea-9eeb-2a5c6d4c3adb.gif' width=200><br>
 
 ### Notes
 Constraining the Application was a bit challenging, considering different iPhone and iPad sizes.
