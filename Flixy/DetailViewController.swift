@@ -12,6 +12,7 @@ import AlamofireImage
 class DetailViewController: UIViewController {
 
     var movie: [String: Any]!
+    var similarMovies: [String: Any]!
     @IBOutlet weak var backgroundPosterImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -23,6 +24,11 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         // get the label
         //print(movie)
+        
+        movieDetail()
+    }
+    
+    func movieDetail(){
         movieOverviewLabel.text = movie["overview"] as? String
         movieTitleLabel.text = movie["title"] as? String
         movieDateLabel.text = movie["release_date"] as? String
@@ -32,26 +38,28 @@ class DetailViewController: UIViewController {
             let posterURL = URL(string: baseUrl + posterPath)!
             posterImageView.af_setImage(withURL: posterURL)
         } else{
-            posterImageView.image = #imageLiteral(resourceName: "Ice")
+            posterImageView.image =  UIImage(named: "Ice")
         }
-        
         
         if let backdropPath = movie["backdrop_path"] as? String{
             let backdropPosterURL = URL(string: "https://image.tmdb.org/t/p/w1280" + backdropPath)!
             backgroundPosterImageView.af_setImage(withURL: backdropPosterURL)
         } else{
-            backgroundPosterImageView.image = #imageLiteral(resourceName: "Ice")
+            backgroundPosterImageView.image =  UIImage(named: "Ice")
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.startUpAnimation()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         posterImageView.alpha = 0.3
         self.movieOverviewLabel.alpha = 0.3
         self.movieDateLabel.alpha = 0.3
     }
-    override func viewDidAppear(_ animated: Bool) {
-        self.startUpAnimation()
-    }
+    
     func startUpAnimation(){
         UIView.animate(withDuration: 2) {
             self.posterImageView.alpha = 1.0

@@ -15,13 +15,26 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegate, UICol
 
     @IBOutlet weak var collectionView: UICollectionView!
     var movies = [[String:Any]]()
+    var pageNumber = 1
+    var results: Int!
+    var refresher: UIRefreshControl!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self
-        let movieURL = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=28f10e36fa09f2d464dd184da2a57b39&language=en-US&page=1")!
+        refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(getMovies), for: .valueChanged)
+        collectionView.addSubview(refresher)
+        collectionView.insertSubview(refresher, at: 0)
+        
+        getMovies()
+    }
+    
+    @objc func getMovies(){
+        pageNumber = 1
+        let movieURL = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=28f10e36fa09f2d464dd184da2a57b39&language=en-US&page=\(pageNumber)")!
         let request = URLRequest(url: movieURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
         let task = session.dataTask(with: request){(data, response, error) in
@@ -35,33 +48,66 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegate, UICol
                 //print(dataDictionary)
                 // store the movies in a property to be used else where
                 self.movies  = dataDictionary["results"] as! [[String:Any]]
+                self.results = dataDictionary["total_results"] as? Int
                 // reload table view data
                 
                 self.collectionView.reloadData()
+                self.refresher.endRefreshing()
+            }
+            
+        }
+        task.resume()
+    }
+    func getMoreMovies(){
+        pageNumber += 1
+        let movieURL = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=28f10e36fa09f2d464dd184da2a57b39&language=en-US&page=\(pageNumber)")!
+        let request = URLRequest(url: movieURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
+        let task = session.dataTask(with: request){(data, response, error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                // get the array of movies
+                //print(dataDictionary)
+                // store the movies in a property to be used else where
+                self.movies  += dataDictionary["results"] as! [[String:Any]]
+                print(self.movies)
+                // reload table view data
+                
+                //self.collectionView.reloadData()
             }
             
         }
         task.resume()
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (indexPath.item + 1 == movies.count) && (movies.count < self.results) {
+            //getMoreMovies()
+            print("got more Heroes!...")
+        }else{
+            print("go Down")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
         let movie = movies[indexPath.item]
         let baseUrl = "https://image.tmdb.org/t/p/w342"
-        let posterPath = movie["poster_path"] as! String
-        let posterURL = URL(string: baseUrl + posterPath)!
-        
-        cell.posterImageView.af_setImage(withURL: posterURL)
-        
+        if let posterPath = movie["poster_path"] as? String {
+            let posterURL = URL(string: baseUrl + posterPath)!
+            cell.posterImageView.af_setImage(withURL: posterURL)
+        } else{
+            cell.posterImageView.image = UIImage(named: "Ice")
+        }
         return cell
     }
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

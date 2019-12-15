@@ -66,16 +66,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vey-8X-FCc" secondAttribute="bottom" constant="8" id="0bl-zY-kMb"/>
+                                                <constraint firstItem="vey-8X-FCc" firstAttribute="top" secondItem="zf9-s1-cMo" secondAttribute="bottom" constant="8" id="41F-kG-sDD"/>
+                                                <constraint firstItem="vey-8X-FCc" firstAttribute="leading" secondItem="zf9-s1-cMo" secondAttribute="leading" id="9pe-r7-xAW"/>
                                                 <constraint firstItem="zf9-s1-cMo" firstAttribute="top" secondItem="grv-wg-4p6" secondAttribute="topMargin" constant="8" id="Cvc-tQ-jxQ"/>
-                                                <constraint firstItem="vey-8X-FCc" firstAttribute="top" secondItem="zf9-s1-cMo" secondAttribute="bottom" constant="8" id="HZW-zQ-ir2"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zf9-s1-cMo" secondAttribute="trailing" constant="8" id="Uyj-fb-HMK"/>
                                                 <constraint firstItem="zf9-s1-cMo" firstAttribute="leading" secondItem="2Fb-EJ-BIF" secondAttribute="trailing" constant="8" id="V46-xx-ro5"/>
+                                                <constraint firstItem="vey-8X-FCc" firstAttribute="trailing" secondItem="zf9-s1-cMo" secondAttribute="trailing" id="YHr-bG-0UE"/>
                                                 <constraint firstItem="2Fb-EJ-BIF" firstAttribute="leading" secondItem="grv-wg-4p6" secondAttribute="leadingMargin" id="gik-zy-LZ0"/>
                                                 <constraint firstItem="2Fb-EJ-BIF" firstAttribute="top" secondItem="grv-wg-4p6" secondAttribute="topMargin" id="jFl-qU-TN2"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vey-8X-FCc" secondAttribute="trailing" constant="8" id="l2x-jn-UCZ"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="vey-8X-FCc" secondAttribute="bottom" constant="8" id="pIo-kG-JYC"/>
-                                                <constraint firstItem="vey-8X-FCc" firstAttribute="leading" secondItem="2Fb-EJ-BIF" secondAttribute="trailing" constant="8" id="skz-c9-wUJ"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="2Fb-EJ-BIF" secondAttribute="bottom" constant="8" id="v3t-xH-fmE"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2Fb-EJ-BIF" secondAttribute="bottom" constant="45" id="v3t-xH-fmE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -340,6 +340,6 @@
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lmy-sO-Vpi"/>
+        <segue reference="TlF-OJ-lVd"/>
     </inferredMetricsTieBreakers>
 </document>

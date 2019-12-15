@@ -14,6 +14,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     var movies = [[String:Any]]()
     var pageNumber = 1
+    var results: Int!
     var refresher: UIRefreshControl!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +23,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
         refresher = UIRefreshControl()
-        self.refresher.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        self.refresher.addTarget(self, action: #selector(getMovies), for: .valueChanged)
         self.tableView.addSubview(refresher)
         tableView.insertSubview(refresher, at: 0)
         
         getMovies()
 
     }
-    @objc func onRefresh(){
-        
-        getMovies()
-        print("Refresh")
-        refresher.endRefreshing()
-    }
-    func getMovies(){
+    @objc func getMovies(){
         pageNumber = 1
         let movieURL = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=28f10e36fa09f2d464dd184da2a57b39&language=en-US&page=\(pageNumber)")!
         let request = URLRequest(url: movieURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -49,9 +44,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 // get the array of movies
                 // store the movies in a property to be used else where
                 self.movies  = dataDictionary["results"] as! [[String:Any]]
-                
+                self.results = dataDictionary["total_results"] as? Int
                 // reload table view data
                 self.tableView.reloadData()
+                self.refresher.endRefreshing()
             }
             
         }
@@ -98,7 +94,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             let posterURL = URL(string: baseUrl + posterPath)!
             cell.movieImageView.af_setImage(withURL: posterURL)
         } else{
-            cell.movieImageView.image = #imageLiteral(resourceName: "Ice")
+            cell.movieImageView.image = UIImage(named: "Ice")
         }
         
         
@@ -110,7 +106,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         //print("here")
-        if(indexPath.row + 1 == movies.count ){
+        if (indexPath.row + 1 == movies.count) && (movies.count < results ){
             getMoreMovies()
             print("Got it!...")
         }
