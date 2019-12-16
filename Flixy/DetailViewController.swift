@@ -34,26 +34,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
-    func movieDetail(){
-//        movieOverviewLabel.text = movie["overview"] as? String
-//        movieTitleLabel.text = movie["title"] as? String
-//        movieDateLabel.text = movie["release_date"] as? String
-//        // get the image
-//        let baseUrl = "https://image.tmdb.org/t/p/w342"
-//        if let posterPath = movie["poster_path"] as? String{
-//            let posterURL = URL(string: baseUrl + posterPath)!
-//            posterImageView.af_setImage(withURL: posterURL)
-//        } else{
-//            posterImageView.image =  UIImage(named: "Ice")
-//        }
-//
-//        if let backdropPath = movie["backdrop_path"] as? String{
-//            let backdropPosterURL = URL(string: "https://image.tmdb.org/t/p/w1280" + backdropPath)!
-//            backgroundPosterImageView.af_setImage(withURL: backdropPosterURL)
-//        } else{
-//            backgroundPosterImageView.image =  UIImage(named: "Ice")
-//        }
-    }
+    
     func getSimilarMovies(){
         let movieURL = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/similar?api_key=28f10e36fa09f2d464dd184da2a57b39&language=en-US&page=1")!
         let request = URLRequest(url: movieURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -138,6 +119,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cell = UITableViewCell()
             
             cell.textLabel?.text = "Similar Movies"
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
             
             return cell
         } else {
@@ -159,7 +141,16 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section > 1{
+            print("you selected \(indexPath.section - 1)")
+            let movie = similarMovies[indexPath.section - 1]
+            self.movie = movie
+            similarMovies.removeAll()
+            getSimilarMovies()
+            tableView.reloadData()
+        }
+    }
     
     // MARK: - Navigation
 
