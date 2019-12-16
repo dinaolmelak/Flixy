@@ -10,6 +10,10 @@ import UIKit
 
 class BGImageCell: UITableViewCell {
 
+    @IBOutlet weak var movieDescription: UILabel!
+    @IBOutlet weak var movieReleaseDateLabel: UILabel!
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var backgroundPosterImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
