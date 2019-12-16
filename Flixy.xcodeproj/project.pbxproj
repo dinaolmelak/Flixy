@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9042518295CE73A940FB70BE /* Pods_Flixy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4DE1B16F463A700A0EA92A /* Pods_Flixy.framework */; };
 		C051FB022394FCC70048E02B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051FB012394FCC70048E02B /* DetailViewController.swift */; };
+		C08DEA1123A70FD5001EFE6E /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DEA1023A70FD5001EFE6E /* DetailCell.swift */; };
+		C08DEA1323A70FFD001EFE6E /* BGImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DEA1223A70FFD001EFE6E /* BGImageCell.swift */; };
 		C0B21175239060B20035F412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B21174239060B20035F412 /* AppDelegate.swift */; };
 		C0B21177239060B20035F412 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B21176239060B20035F412 /* SceneDelegate.swift */; };
 		C0B2117C239060B20035F412 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B2117A239060B20035F412 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 		17339180F3089F4C510F5743 /* Pods-Flixy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flixy.debug.xcconfig"; path = "Target Support Files/Pods-Flixy/Pods-Flixy.debug.xcconfig"; sourceTree = "<group>"; };
 		6D2DC2F9FF388C8CB7627D19 /* Pods-Flixy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flixy.release.xcconfig"; path = "Target Support Files/Pods-Flixy/Pods-Flixy.release.xcconfig"; sourceTree = "<group>"; };
 		C051FB012394FCC70048E02B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C08DEA1023A70FD5001EFE6E /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		C08DEA1223A70FFD001EFE6E /* BGImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGImageCell.swift; sourceTree = "<group>"; };
 		C099EC4F2390B47D00F4D7F8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C0B21171239060B20035F412 /* Flixy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flixy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B21174239060B20035F412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				C0C4FCE0239B6D2200040381 /* MovieGridViewController.swift */,
 				C0C4FCE2239B781600040381 /* MovieGridCell.swift */,
 				C0E3673A239CCAE800C84550 /* TrailerViewController.swift */,
+				C08DEA1023A70FD5001EFE6E /* DetailCell.swift */,
+				C08DEA1223A70FFD001EFE6E /* BGImageCell.swift */,
 			);
 			path = Flixy;
 			sourceTree = "<group>";
@@ -225,6 +231,8 @@
 			files = (
 				C0E3673B239CCAE800C84550 /* TrailerViewController.swift in Sources */,
 				C0B21175239060B20035F412 /* AppDelegate.swift in Sources */,
+				C08DEA1323A70FFD001EFE6E /* BGImageCell.swift in Sources */,
+				C08DEA1123A70FD5001EFE6E /* DetailCell.swift in Sources */,
 				C0B21177239060B20035F412 /* SceneDelegate.swift in Sources */,
 				C051FB022394FCC70048E02B /* DetailViewController.swift in Sources */,
 				C0B2118B239079D40035F412 /* MovieCell.swift in Sources */,
