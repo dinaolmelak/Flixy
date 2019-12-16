@@ -14,6 +14,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!
     var movie: [String: Any]!
+    var movieID = Int()
     var similarMovies = [[String: Any]]()
 //    @IBOutlet weak var backgroundPosterImageView: UIImageView! // found in BGcell
 //    @IBOutlet weak var posterImageView: UIImageView!  -|-> found in DetailCell
@@ -28,8 +29,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //print(movie)
         tableView.delegate = self
         tableView.dataSource = self
-        
-        movieDetail()
+        movieID = self.movie["id"] as! Int
+        getSimilarMovies()
     }
     
     func movieDetail(){
@@ -51,6 +52,27 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        } else{
 //            backgroundPosterImageView.image =  UIImage(named: "Ice")
 //        }
+    }
+    func getSimilarMovies(){
+        let movieURL = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/similar?api_key=28f10e36fa09f2d464dd184da2a57b39&language=en-US&page=1")!
+        let request = URLRequest(url: movieURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
+        let task = session.dataTask(with: request){(data, response, error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                // get the array of movies
+                // store the movies in a property to be used else where
+                self.similarMovies  = dataDictionary["results"] as! [[String:Any]]
+                // reload table view data
+                self.tableView.reloadData()
+                
+            }
+            
+        }
+        task.resume()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,14 +108,53 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return similarMovies.count
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return similarMovies.count + 1
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return similarMovies.count + 1
+//    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailCell
         
+        let baseUrl = "https://image.tmdb.org/t/p/w342"
         
-        return cell
+        if indexPath.row == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BGImageCell", for: indexPath) as! BGImageCell
+           
+            if let backdropPath = movie["backdrop_path"] as? String{
+                let backdropPosterURL = URL(string: "https://image.tmdb.org/t/p/w1280" + backdropPath)!
+                cell.backgroundPosterImageView.af_setImage(withURL: backdropPosterURL)
+            } else{
+                cell.backgroundPosterImageView.image =  UIImage(named: "Ice")
+            }
+            //cell.backgroundPosterImageView.af_setImage(withURL: "Ice")
+            
+            return cell
+            
+        } else if indexPath.row == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailCell
+            cell.movieTitleLabel.text = movie["title"] as? String
+            cell.movieDateLabel.text = movie["release_date"] as? String
+            cell.movieOverviewLabel.text = movie["overview"] as? String
+                if let posterPath = movie["poster_path"] as? String{
+                    let posterURL = URL(string: baseUrl + posterPath)!
+                    cell.posterImageView.af_setImage(withURL: posterURL)
+                } else{
+                    cell.posterImageView.image =  UIImage(named: "Ice")
+                }
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailCell
+            let movie = similarMovies[indexPath.row]
+            cell.movieTitleLabel.text = movie["title"] as? String
+            cell.movieDateLabel.text = movie["release_date"] as? String
+            cell.movieOverviewLabel.text = movie["overview"] as? String
+                if let posterPath = movie["poster_path"] as? String{
+                    let posterURL = URL(string: baseUrl + posterPath)!
+                    cell.posterImageView.af_setImage(withURL: posterURL)
+                } else{
+                    cell.posterImageView.image =  UIImage(named: "Ice")
+                }
+            return cell
+        }
     }
     
     
