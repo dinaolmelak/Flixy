@@ -559,34 +559,6 @@
             </objects>
             <point key="canvasLocation" x="2276" y="822"/>
         </scene>
-        <!--Sign Up-->
-        <scene sceneID="szR-Ej-01h">
-            <objects>
-                <viewController id="OAx-1y-2NC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LVn-uG-7ER">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="launch_image" translatesAutoresizingMaskIntoConstraints="NO" id="bGI-uT-Da7">
-                                <rect key="frame" x="118.5" y="50" width="138" height="139"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="bGI-uT-Da7" secondAttribute="height" multiplier="138:139" id="Mic-Yp-kEb"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="bGI-uT-Da7" firstAttribute="centerX" secondItem="LVn-uG-7ER" secondAttribute="centerX" id="PzA-YM-syh"/>
-                            <constraint firstItem="bGI-uT-Da7" firstAttribute="top" secondItem="6Gb-x6-qk8" secondAttribute="top" constant="50" id="Wyi-RL-i08"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Gb-x6-qk8"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Sign Up" image="person" catalog="system" id="QPD-gS-3hV"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IRZ-zp-bxP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3166" y="822"/>
-        </scene>
         <!--My Movies-->
         <scene sceneID="uE7-ka-Mkq">
             <objects>
