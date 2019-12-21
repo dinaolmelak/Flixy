@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Parse
 
 class AccountInfoViewController: UIViewController {
 
+    @IBOutlet weak var signUpPWTextField: UITextField!
+    @IBOutlet weak var signUpEmailTextField: UITextField!
+    @IBOutlet weak var signUpUNTextField: UITextField!
     @IBOutlet weak var signUpStackView: UIStackView!
     @IBOutlet weak var signInStackView: UIStackView!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -37,6 +41,25 @@ class AccountInfoViewController: UIViewController {
             signingButton.title = "Sign Up"
             signUpStackView.isHidden = false
             signInStackView.isHidden = true
+        }
+    }
+    
+    @IBAction func onTapSigning(_ sender: Any) {
+        print(checkSignInTF())
+        
+    }
+    func checkSignInTF() -> Bool{
+        if usernameTextField.text != "" && passwordTextField.text != ""{
+            return true
+        }else{
+            return false
+        }
+    }
+    func checkSignUPTF() -> Bool{
+        if signUpUNTextField.text != "" && signUpPWTextField.text != "" && signUpEmailTextField.text != ""{
+            return true
+        }else{
+            return false
         }
     }
     /*

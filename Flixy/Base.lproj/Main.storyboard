@@ -488,12 +488,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hq5-dy-sGz">
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hq5-dy-sGz">
                                         <rect key="frame" x="0.0" y="58" width="343" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HM8-7n-6NO">
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HM8-7n-6NO">
                                         <rect key="frame" x="0.0" y="116" width="343" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -518,7 +518,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eqU-fV-wNU">
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eqU-fV-wNU">
                                         <rect key="frame" x="0.0" y="58" width="343" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -543,16 +543,22 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Sign In" image="person.fill" catalog="system" id="9Bd-t0-F89"/>
                     <navigationItem key="navigationItem" id="vel-tg-c3i">
-                        <barButtonItem key="rightBarButtonItem" title="Sign In" id="vsj-Qv-eql"/>
+                        <barButtonItem key="rightBarButtonItem" title="Sign In" id="vsj-Qv-eql">
+                            <connections>
+                                <action selector="onTapSigning:" destination="9NA-d8-fyH" id="Sb5-98-Dj0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="SigningButton" destination="vsj-Qv-eql" id="bJ2-gb-cV0"/>
-                        <outlet property="passwordTextField" destination="eqU-fV-wNU" id="Xs6-QV-gS7"/>
-                        <outlet property="signInStackView" destination="QD1-oH-Ddp" id="dWd-8u-3Ts"/>
-                        <outlet property="signUpStackView" destination="zwR-KZ-yx3" id="2iV-l1-cRt"/>
-                        <outlet property="signingButton" destination="vsj-Qv-eql" id="wIj-0W-uaY"/>
-                        <outlet property="signingSegment" destination="TCK-BW-rLc" id="ivi-jN-43B"/>
-                        <outlet property="usernameTextField" destination="zYO-jC-hWy" id="VmG-45-qUh"/>
+                        <outlet property="passwordTextField" destination="eqU-fV-wNU" id="6cr-k5-942"/>
+                        <outlet property="signInStackView" destination="QD1-oH-Ddp" id="zTr-I5-iYa"/>
+                        <outlet property="signUpEmailTextField" destination="hq5-dy-sGz" id="Vt4-nZ-fnH"/>
+                        <outlet property="signUpPWTextField" destination="HM8-7n-6NO" id="1ww-Gz-18r"/>
+                        <outlet property="signUpStackView" destination="zwR-KZ-yx3" id="iFf-yD-fmG"/>
+                        <outlet property="signUpUNTextField" destination="zpY-yT-Omu" id="Y17-8C-LDe"/>
+                        <outlet property="signingButton" destination="vsj-Qv-eql" id="Fqx-4K-rkl"/>
+                        <outlet property="signingSegment" destination="TCK-BW-rLc" id="JZm-xz-aVg"/>
+                        <outlet property="usernameTextField" destination="zYO-jC-hWy" id="PbO-lm-Dqm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsa-h1-jib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
