@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MyMoviesViewController: UIViewController {
 
@@ -17,6 +18,9 @@ class MyMoviesViewController: UIViewController {
         // Do any additional setup after loading the view.
         setRequestToken()
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        performSegue(withIdentifier: "UserSegue", sender: self)
     }
     func setRequestToken(){
         let movieURL = URL(string: "https://api.themoviedb.org/3/authentication/token/new?api_key=28f10e36fa09f2d464dd184da2a57b39")!
