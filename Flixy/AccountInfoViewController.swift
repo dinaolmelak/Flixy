@@ -47,17 +47,29 @@ class AccountInfoViewController: UIViewController {
     @IBAction func onTapSigning(_ sender: Any) {
         if signingSegment.selectedSegmentIndex == 0{
             if checkSignInTF() {
-                
+                print("ready to check auth")
+                PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (currentPFUser, error) in
+                    if error != nil{
+                        
+                    }else{
+                        print("signed in")
+                    }
+                }
             }
         }else{
             if(checkSignUPTF()){
+                print("ready to check auth")
                 let user = PFUser()
-                user["user"] = signUpUNTextField.text
-                user["password"] = signUpPWTextField.text
+                user.username = signUpUNTextField.text!
+                user.email = signUpEmailTextField.text!
+                user.password = signUpPWTextField.text!
                 
-                user.signUpInBackground { (Bool, Error) in
-                    print("Did sign UP \(Bool)")
-                    print("Error? \(Error)")
+                user.signUpInBackground { (success, error) in
+                    if error != nil{
+                        print(error)
+                    } else{
+                        print("Sign up success")
+                    }
                 }
             }
         }
