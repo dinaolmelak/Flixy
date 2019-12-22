@@ -45,7 +45,22 @@ class AccountInfoViewController: UIViewController {
     }
     
     @IBAction func onTapSigning(_ sender: Any) {
-        print(checkSignInTF())
+        if signingSegment.selectedSegmentIndex == 0{
+            if checkSignInTF() {
+                
+            }
+        }else{
+            if(checkSignUPTF()){
+                let user = PFUser()
+                user["user"] = signUpUNTextField.text
+                user["password"] = signUpPWTextField.text
+                
+                user.signUpInBackground { (Bool, Error) in
+                    print("Did sign UP \(Bool)")
+                    print("Error? \(Error)")
+                }
+            }
+        }
         
     }
     func checkSignInTF() -> Bool{
