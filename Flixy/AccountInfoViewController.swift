@@ -48,29 +48,36 @@ class AccountInfoViewController: UIViewController {
         if signingSegment.selectedSegmentIndex == 0{
             if checkSignInTF() {
                 print("ready to check auth")
-                PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (currentPFUser, error) in
-                    if error != nil{
-                        
-                    }else{
-                        print("signed in")
-                    }
-                }
+//                PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (currentPFUser, error) in
+//                    if error != nil{
+//
+//                    }else{
+//                        print("signed in")
+//                        UserDefaults.standard.set(true, forKey: "LoggedIn")
+//                    }
+//                }
+                UserDefaults.standard.set(true, forKey: "isUser")
+                dismiss(animated: true, completion: nil)
+                navigationController?.popViewController(animated: true)
             }
         }else{
             if(checkSignUPTF()){
                 print("ready to check auth")
-                let user = PFUser()
-                user.username = signUpUNTextField.text!
-                user.email = signUpEmailTextField.text!
-                user.password = signUpPWTextField.text!
-                
-                user.signUpInBackground { (success, error) in
-                    if error != nil{
-                        print(error)
-                    } else{
-                        print("Sign up success")
-                    }
-                }
+//                let user = PFUser()
+//                user.username = signUpUNTextField.text!
+//                user.email = signUpEmailTextField.text!
+//                user.password = signUpPWTextField.text!
+//
+//                user.signUpInBackground { (success, error) in
+//                    if error != nil{
+//                        print(error)
+//                    } else{
+//                        print("Sign up success")
+//                    }
+//                }
+                UserDefaults.standard.set(true, forKey: "isUser")
+                dismiss(animated: true, completion: nil)
+                navigationController?.popViewController(animated: true)
             }
         }
         

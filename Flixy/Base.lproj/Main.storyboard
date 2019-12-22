@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X18-AE-Viy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j9R-dp-34I">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -457,7 +457,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uqe-Ke-Jqx"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eq1-nh-RsW"/>
+                    <navigationItem key="navigationItem" id="eq1-nh-RsW">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="g6j-d4-Ci5">
+                            <connections>
+                                <action selector="didTapLogout:" destination="j9R-dp-34I" id="Bgd-pb-32b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="9NA-d8-fyH" kind="show" identifier="UserSegue" id="mfB-NS-XDq"/>
                     </connections>
@@ -563,7 +569,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsa-h1-jib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2276" y="822"/>
+            <point key="canvasLocation" x="2148" y="822"/>
         </scene>
         <!--My Movies-->
         <scene sceneID="uE7-ka-Mkq">
