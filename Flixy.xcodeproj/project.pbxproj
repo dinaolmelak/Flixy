@@ -10,6 +10,8 @@
 		9042518295CE73A940FB70BE /* Pods_Flixy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4DE1B16F463A700A0EA92A /* Pods_Flixy.framework */; };
 		C00554FE23AE045A0028408B /* MyMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00554FD23AE045A0028408B /* MyMoviesViewController.swift */; };
 		C005550023AE3B030028408B /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00554FF23AE3B030028408B /* AccountInfoViewController.swift */; };
+		C005550223B02A3E0028408B /* FavoriteMoviesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005550123B02A3E0028408B /* FavoriteMoviesCell.swift */; };
+		C005550423B031550028408B /* ProfileInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005550323B031550028408B /* ProfileInfoCell.swift */; };
 		C051FB022394FCC70048E02B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051FB012394FCC70048E02B /* DetailViewController.swift */; };
 		C08DEA1123A70FD5001EFE6E /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DEA1023A70FD5001EFE6E /* DetailCell.swift */; };
 		C08DEA1323A70FFD001EFE6E /* BGImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DEA1223A70FFD001EFE6E /* BGImageCell.swift */; };
@@ -30,6 +32,8 @@
 		6D2DC2F9FF388C8CB7627D19 /* Pods-Flixy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flixy.release.xcconfig"; path = "Target Support Files/Pods-Flixy/Pods-Flixy.release.xcconfig"; sourceTree = "<group>"; };
 		C00554FD23AE045A0028408B /* MyMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoviesViewController.swift; sourceTree = "<group>"; };
 		C00554FF23AE3B030028408B /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
+		C005550123B02A3E0028408B /* FavoriteMoviesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesCell.swift; sourceTree = "<group>"; };
+		C005550323B031550028408B /* ProfileInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoCell.swift; sourceTree = "<group>"; };
 		C051FB012394FCC70048E02B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C08DEA1023A70FD5001EFE6E /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		C08DEA1223A70FFD001EFE6E /* BGImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGImageCell.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 				C08DEA1223A70FFD001EFE6E /* BGImageCell.swift */,
 				C00554FD23AE045A0028408B /* MyMoviesViewController.swift */,
 				C00554FF23AE3B030028408B /* AccountInfoViewController.swift */,
+				C005550123B02A3E0028408B /* FavoriteMoviesCell.swift */,
+				C005550323B031550028408B /* ProfileInfoCell.swift */,
 			);
 			path = Flixy;
 			sourceTree = "<group>";
@@ -240,11 +246,13 @@
 				C005550023AE3B030028408B /* AccountInfoViewController.swift in Sources */,
 				C0B21175239060B20035F412 /* AppDelegate.swift in Sources */,
 				C08DEA1323A70FFD001EFE6E /* BGImageCell.swift in Sources */,
+				C005550423B031550028408B /* ProfileInfoCell.swift in Sources */,
 				C08DEA1123A70FD5001EFE6E /* DetailCell.swift in Sources */,
 				C0B21177239060B20035F412 /* SceneDelegate.swift in Sources */,
 				C051FB022394FCC70048E02B /* DetailViewController.swift in Sources */,
 				C0B2118B239079D40035F412 /* MovieCell.swift in Sources */,
 				C0B211892390657B0035F412 /* MoviesViewController.swift in Sources */,
+				C005550223B02A3E0028408B /* FavoriteMoviesCell.swift in Sources */,
 				C0C4FCE1239B6D2200040381 /* MovieGridViewController.swift in Sources */,
 				C0C4FCE3239B781700040381 /* MovieGridCell.swift in Sources */,
 			);

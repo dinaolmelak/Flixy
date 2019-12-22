@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Parse
 import AlamofireImage
 
-class MyMoviesViewController: UIViewController {
-
+class MyMoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var movieIDs = [Int]()
     var requestToken = String()
+    @IBOutlet weak var myMoviesTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        myMoviesTableView.delegate = self
+        myMoviesTableView.dataSource = self
         // Do any additional setup after loading the view.
         setRequestToken()
     }
@@ -50,6 +54,23 @@ class MyMoviesViewController: UIViewController {
         task.resume()
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return movieIDs.count + 1
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0{
+            let cell = myMoviesTableView.dequeueReusableCell(withIdentifier: "ProfileInfoCell") as! ProfileInfoCell
+            
+            return cell
+        }else{
+            let cell = myMoviesTableView.dequeueReusableCell(withIdentifier: "FavoriteMoviesCell") as! FavoriteMoviesCell
+            
+            return cell
+        }
+    }
     /*
     // MARK: - Navigation
 
