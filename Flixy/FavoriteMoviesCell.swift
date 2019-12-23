@@ -10,6 +10,9 @@ import UIKit
 
 class FavoriteMoviesCell: UITableViewCell {
 
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var movieLabel: UILabel!
+    @IBOutlet weak var profilePic: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

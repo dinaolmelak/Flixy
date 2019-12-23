@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 import AlamofireImage
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -89,6 +90,24 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func numberOfSections(in tableView: UITableView) -> Int {
         return similarMovies.count + 1
     }
+    @IBAction func didTapAddMovie(_ sender: Any) {
+        if PFUser.current() != nil {
+            let myMovie = PFObject(className: "MyMovies")
+            myMovie["title"] = movie["title"] as? String
+            myMovie["release_date"] = movie["release_date"] as? String
+            myMovie["overview"] = movie["overview"] as? String
+            myMovie["id"] = movie["id"] as? Int
+            if (movie["poster_path"] as? String) != nil {
+                myMovie["poster_path"] = movie["poster_path"] as? String
+            }
+            if (movie["backdrop_path"] as? String) != nil{
+                myMovie["backdrop_path"] = movie["backdrop_path"] as? String
+            }
+            
+        } else {
+            showAlert("Not a Flixer", "You are no currently signied in, Please Sign in")
+        }
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let baseUrl = "https://image.tmdb.org/t/p/w342"
@@ -162,6 +181,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         trailerSegue.movie = movie
         
     }
-    
+
+    func showAlert(_ title: String,_ message: String){
+           let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+           alert.addAction(alertAction)
+           present(alert, animated: true, completion: nil)
+    }
 
 }

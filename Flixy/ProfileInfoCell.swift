@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileInfoCell: UITableViewCell {
 
+    @IBOutlet weak var numMovies: UILabel!
+    @IBOutlet weak var profilePic: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

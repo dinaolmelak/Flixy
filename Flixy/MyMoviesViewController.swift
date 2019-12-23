@@ -13,46 +13,27 @@ import AlamofireImage
 class MyMoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var movieIDs = [Int]()
-    var requestToken = String()
+    var myMovies = [[String:Any]]()
     @IBOutlet weak var myMoviesTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         myMoviesTableView.delegate = self
         myMoviesTableView.dataSource = self
         // Do any additional setup after loading the view.
-        setRequestToken()
+        
+        
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         if !UserDefaults.standard.bool(forKey: "isUser"){
-            performSegue(withIdentifier: "UserSegue", sender: self)
+            performSegue(withIdentifier: "SignoutSegue", sender: self)
         }
+        //let userMovies = PFo
     }
     @IBAction func didTapLogout(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "isUser")
-        dismiss(animated: true, completion: nil)
-        navigationController?.popViewController(animated: true)
+        performSegue(withIdentifier: "SignoutSegue", sender: self)
         
         
-    }
-    
-    func setRequestToken(){
-        let movieURL = URL(string: "https://api.themoviedb.org/3/authentication/token/new?api_key=28f10e36fa09f2d464dd184da2a57b39")!
-        let request = URLRequest(url: movieURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
-        let task = session.dataTask(with: request){(data, response, error) in
-            
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                // get the array of movies
-                // store the movies in a property to be used else where
-                self.requestToken = dataDictionary["request_token"] as! String
-                print(self.requestToken)
-            }
-            
-        }
-        task.resume()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,14 +45,41 @@ class MyMoviesViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let cell = myMoviesTableView.dequeueReusableCell(withIdentifier: "ProfileInfoCell") as! ProfileInfoCell
-            
+            cell.numMovies.text = String(movieIDs.count)
             return cell
         }else{
             let cell = myMoviesTableView.dequeueReusableCell(withIdentifier: "FavoriteMoviesCell") as! FavoriteMoviesCell
             
+            
+            
+            
             return cell
         }
     }
+    
+    func getMovie(ofID movieID: Int){
+        let movieID = "https://api.themoviedb.org/3/movie/\(movieID)?api_key=28f10e36fa09f2d464dd184da2a57b39&language=en-US"
+        let movie_id = URL(string: movieID)!
+        let request = URLRequest(url: movie_id, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
+        let task = session.dataTask(with: request){(data, response, error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                // get the array of movies
+                // store the movies in a property to be used else where
+                self.myMovies += dataDictionary["results"] as! [[String:Any]]
+                
+                // reload table view data
+                self.myMoviesTableView.reloadData()
+            }
+            
+        }
+        task.resume()
+    }
+    
     /*
     // MARK: - Navigation
 

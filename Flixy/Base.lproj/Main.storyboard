@@ -12,6 +12,7 @@
         <scene sceneID="J0k-4I-Vdl">
             <objects>
                 <tabBarController id="X18-AE-Viy" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nsH-Pj-IEN"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oq3-oK-ChL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -20,7 +21,7 @@
                     <connections>
                         <segue destination="g8i-hr-fh8" kind="relationship" relationship="viewControllers" id="Ybw-13-vfb"/>
                         <segue destination="ziZ-Ix-76f" kind="relationship" relationship="viewControllers" id="TWg-4K-wBK"/>
-                        <segue destination="9NA-d8-fyH" kind="relationship" relationship="viewControllers" id="5Hs-PK-y9T"/>
+                        <segue destination="m4u-nd-UbL" kind="relationship" relationship="viewControllers" id="UZa-AX-8nF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oX5-Hu-tBp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -149,7 +150,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEf-cN-lxI">
-                                                    <rect key="frame" x="145" y="229" width="222" height="29"/>
+                                                    <rect key="frame" x="145" y="229" width="138.5" height="29"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -166,10 +167,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yv1-hc-hYC">
+                                                    <rect key="frame" x="341" y="229" width="18" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="18" id="e6b-Me-VGa"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="plus" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="didTapAddMovie:" destination="VDE-PA-oSi" eventType="touchUpInside" id="up2-CO-gbU"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ay4-OQ-Duq" secondAttribute="bottom" constant="8" id="2SI-fd-m35"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="YuT-yW-FYE" secondAttribute="bottom" constant="8" id="2fF-hF-IuU"/>
+                                                <constraint firstItem="Yv1-hc-hYC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HEf-cN-lxI" secondAttribute="trailing" constant="15" id="IEd-BA-476"/>
                                                 <constraint firstItem="Ay4-OQ-Duq" firstAttribute="top" secondItem="YuT-yW-FYE" secondAttribute="bottom" constant="8" id="J8p-bW-aQv"/>
                                                 <constraint firstItem="HEf-cN-lxI" firstAttribute="top" secondItem="VuC-5w-xlO" secondAttribute="bottom" constant="8" id="NYT-jD-DQW"/>
                                                 <constraint firstItem="VuC-5w-xlO" firstAttribute="leading" secondItem="bhc-5Q-rMY" secondAttribute="leading" id="Ngi-NO-AUL"/>
@@ -177,14 +189,16 @@
                                                 <constraint firstItem="HEf-cN-lxI" firstAttribute="leading" secondItem="YuT-yW-FYE" secondAttribute="trailing" constant="10" id="Qe3-GI-1zf"/>
                                                 <constraint firstItem="11T-cl-4A9" firstAttribute="top" secondItem="HEf-cN-lxI" secondAttribute="bottom" constant="2" id="Vsf-Hq-rUb"/>
                                                 <constraint firstItem="VuC-5w-xlO" firstAttribute="top" secondItem="bhc-5Q-rMY" secondAttribute="top" id="WTG-Hf-kgT"/>
+                                                <constraint firstAttribute="trailing" secondItem="Yv1-hc-hYC" secondAttribute="trailing" constant="16" id="a5m-kj-Vib"/>
+                                                <constraint firstItem="Yv1-hc-hYC" firstAttribute="top" secondItem="HEf-cN-lxI" secondAttribute="top" id="cbd-ah-Je7"/>
                                                 <constraint firstItem="11T-cl-4A9" firstAttribute="top" secondItem="HEf-cN-lxI" secondAttribute="bottom" constant="2" id="coF-lX-uaB"/>
                                                 <constraint firstItem="Ay4-OQ-Duq" firstAttribute="leading" secondItem="bhc-5Q-rMY" secondAttribute="leading" constant="8" id="fa3-ly-5BO"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ay4-OQ-Duq" secondAttribute="trailing" constant="8" id="gTL-ac-2Mf"/>
                                                 <constraint firstItem="11T-cl-4A9" firstAttribute="trailing" secondItem="bhc-5Q-rMY" secondAttribute="trailingMargin" constant="8" id="jFG-kc-ohd"/>
                                                 <constraint firstItem="11T-cl-4A9" firstAttribute="leading" secondItem="YuT-yW-FYE" secondAttribute="trailing" constant="10" id="qwO-dD-1Qz"/>
                                                 <constraint firstItem="YuT-yW-FYE" firstAttribute="centerY" secondItem="VuC-5w-xlO" secondAttribute="bottom" id="sJn-82-dzS"/>
+                                                <constraint firstItem="Yv1-hc-hYC" firstAttribute="bottom" secondItem="HEf-cN-lxI" secondAttribute="bottom" id="sZG-3O-7Dy"/>
                                                 <constraint firstAttribute="trailing" secondItem="VuC-5w-xlO" secondAttribute="trailing" id="u47-4H-gpN"/>
-                                                <constraint firstAttribute="trailing" secondItem="HEf-cN-lxI" secondAttribute="trailing" constant="8" id="w4u-N0-moT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -283,7 +297,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJF-Pt-ICs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="vbw-ma-Nns"/>
             </objects>
-            <point key="canvasLocation" x="489" y="1827"/>
+            <point key="canvasLocation" x="488.80000000000001" y="1826.5367316341831"/>
         </scene>
         <!--Trailer View Controller-->
         <scene sceneID="Kg1-Es-ftR">
@@ -491,6 +505,10 @@
                                                 <constraint firstItem="CTY-C0-41l" firstAttribute="top" secondItem="q4c-N8-vtL" secondAttribute="bottom" constant="8" id="zhm-Ea-K56"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="numMovies" destination="8ye-hC-WKy" id="2yU-4H-Y4n"/>
+                                            <outlet property="profilePic" destination="q4c-N8-vtL" id="6pP-Im-aah"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteMoviesCell" rowHeight="152" id="iwh-Le-lFg" customClass="FavoriteMoviesCell" customModule="Flixy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="317" width="375" height="152"/>
@@ -532,6 +550,11 @@
                                                 <constraint firstItem="ggx-YJ-Yuu" firstAttribute="leading" secondItem="pyV-2d-thR" secondAttribute="leadingMargin" id="rJ5-VJ-ZW6"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="tfv-wa-dL7" id="nDN-KC-e0w"/>
+                                            <outlet property="movieLabel" destination="Gj0-tz-WVU" id="jqv-fa-gnV"/>
+                                            <outlet property="profilePic" destination="ggx-YJ-Yuu" id="c0n-l1-1cH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -548,7 +571,7 @@
                     <navigationItem key="navigationItem" id="eq1-nh-RsW">
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="g6j-d4-Ci5">
                             <connections>
-                                <action selector="didTapLogout:" destination="j9R-dp-34I" id="Bgd-pb-32b"/>
+                                <action selector="didTapLogout:" destination="j9R-dp-34I" id="8d2-ST-cIb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -556,11 +579,12 @@
                     <connections>
                         <outlet property="myMoviesTableView" destination="hKw-st-6ja" id="V0J-dc-Xhk"/>
                         <segue destination="VDE-PA-oSi" kind="show" id="9De-WQ-VRm"/>
+                        <segue destination="9NA-d8-fyH" kind="presentation" identifier="SignoutSegue" modalPresentationStyle="fullScreen" id="Bvw-OT-fDF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNS-0u-VND" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="822"/>
+            <point key="canvasLocation" x="1553" y="822"/>
         </scene>
         <!--My Movies-->
         <scene sceneID="cDi-wG-pjo">
@@ -597,7 +621,7 @@
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TCK-BW-rLc">
-                                <rect key="frame" x="120" y="517" width="135" height="32"/>
+                                <rect key="frame" x="120" y="566" width="135" height="32"/>
                                 <segments>
                                     <segment title="Sign In"/>
                                     <segment title="Sign Up"/>
@@ -622,11 +646,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvd-yJ-0gF">
-                                <rect key="frame" x="329" y="16" width="30" height="30"/>
+                                <rect key="frame" x="309" y="16" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="PyE-gv-9tZ"/>
                                 </constraints>
-                                <state key="normal" title=""/>
+                                <state key="normal" title="Sign-In"/>
                                 <connections>
                                     <action selector="onTapSigning:" destination="9NA-d8-fyH" eventType="touchUpInside" id="M0r-f6-tYR"/>
                                 </connections>
@@ -663,18 +687,20 @@
                         <outlet property="signingButton" destination="Qvd-yJ-0gF" id="Ymd-9B-7mg"/>
                         <outlet property="signingSegment" destination="TCK-BW-rLc" id="JZm-xz-aVg"/>
                         <outlet property="usernameTextField" destination="zYO-jC-hWy" id="PbO-lm-Dqm"/>
-                        <segue destination="m4u-nd-UbL" kind="presentation" identifier="UserSegue" modalPresentationStyle="fullScreen" id="8GF-GN-bwo"/>
+                        <segue destination="X18-AE-Viy" kind="presentation" identifier="UserSegue" modalPresentationStyle="fullScreen" id="ZxT-rG-MGO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsa-h1-jib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1293.5999999999999" y="49.925037481259373"/>
+            <point key="canvasLocation" x="2674" y="50"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Movies-->
         <scene sceneID="ZEo-mH-mob">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4u-nd-UbL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Movies" image="person" catalog="system" id="yet-E8-hoI"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Xp5-ne-s95"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MCf-pk-ax1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -686,14 +712,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wC-BE-OPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1293.5999999999999" y="821.73913043478262"/>
+            <point key="canvasLocation" x="1553" y="50"/>
         </scene>
     </scenes>
     <resources>
         <image name="Ice" width="112.5" height="112.5"/>
         <image name="launch_image" width="138" height="139"/>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
+        <image name="person" catalog="system" width="64" height="58"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
         <image name="profile_pic" width="1242" height="2016"/>
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
