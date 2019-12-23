@@ -29,7 +29,8 @@ class MyMoviesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     @IBAction func didTapLogout(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "isUser")
-        performSegue(withIdentifier: "UserSegue", sender: self)
+        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
         
         
     }

@@ -18,7 +18,7 @@ class AccountInfoViewController: UIViewController {
     @IBOutlet weak var signInStackView: UIStackView!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var signingButton: UIBarButtonItem!
+    @IBOutlet weak var signingButton: UIButton!
     @IBOutlet weak var signingSegment: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +34,11 @@ class AccountInfoViewController: UIViewController {
     
     func toggleSigningSegment(){
         if signingSegment.selectedSegmentIndex == 0 {// means that it is on Sign In
-            signingButton.title = "Sign In"
+            signingButton.setTitle("Sign In", for: .normal)
             signUpStackView.isHidden = true
             signInStackView.isHidden = false
         } else{//means that it is on Sign Up
-            signingButton.title = "Sign Up"
+            signingButton.setTitle("Sign Up", for: .normal)
             signUpStackView.isHidden = false
             signInStackView.isHidden = true
         }
@@ -48,36 +48,47 @@ class AccountInfoViewController: UIViewController {
         if signingSegment.selectedSegmentIndex == 0{
             if checkSignInTF() {
                 print("ready to check auth")
-//                PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (currentPFUser, error) in
-//                    if error != nil{
-//
-//                    }else{
-//                        print("signed in")
-//                        UserDefaults.standard.set(true, forKey: "LoggedIn")
-//                    }
-//                }
-                UserDefaults.standard.set(true, forKey: "isUser")
-                dismiss(animated: true, completion: nil)
-                navigationController?.popViewController(animated: true)
+                PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (currentPFUser, error) in
+                    if error != nil{
+
+                    }else{
+                        print("signed in")
+                        UserDefaults.standard.set(true, forKey: "isUser")
+                        self.performSegue(withIdentifier: "UserSegue", sender: self)
+                        
+                        
+                    }
+                }
+                
+//                dismiss(animated: true, completion: nil)
+//                navigationController?.popViewController(animated: true)
+            } else {
+                showAlert("Missing Info", "You are missing a Username or password")
             }
         }else{
             if(checkSignUPTF()){
                 print("ready to check auth")
-//                let user = PFUser()
-//                user.username = signUpUNTextField.text!
-//                user.email = signUpEmailTextField.text!
-//                user.password = signUpPWTextField.text!
-//
-//                user.signUpInBackground { (success, error) in
-//                    if error != nil{
-//                        print(error)
-//                    } else{
-//                        print("Sign up success")
-//                    }
-//                }
-                UserDefaults.standard.set(true, forKey: "isUser")
-                dismiss(animated: true, completion: nil)
-                navigationController?.popViewController(animated: true)
+                let user = PFUser()
+                user.username = signUpUNTextField.text!
+                user.email = signUpEmailTextField.text!
+                user.password = signUpPWTextField.text!
+
+                user.signUpInBackground { (success, error) in
+                    if error != nil{
+                        print(error)
+                    } else{
+                        print("Sign up success")
+                        
+                        UserDefaults.standard.set(true, forKey: "isUser")
+                        self.performSegue(withIdentifier: "UserSegue", sender: self)
+                        
+                    }
+                }
+                
+//                dismiss(animated: true, completion: nil)
+//                navigationController?.popViewController(animated: true)
+            } else{
+                showAlert("Missign Info", "You are missing a Username, Email or password")
             }
         }
         
@@ -95,6 +106,14 @@ class AccountInfoViewController: UIViewController {
         }else{
             return false
         }
+    }
+    
+    
+    func showAlert(_ title: String,_ message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(alertAction)
+        self.present(alert, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
