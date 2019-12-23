@@ -96,13 +96,21 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             myMovie["title"] = movie["title"] as? String
             myMovie["release_date"] = movie["release_date"] as? String
             myMovie["overview"] = movie["overview"] as? String
-            myMovie["id"] = movie["id"] as? Int
+            myMovie["movie_id"] = movieID
             if (movie["poster_path"] as? String) != nil {
                 myMovie["poster_path"] = movie["poster_path"] as? String
             }
             if (movie["backdrop_path"] as? String) != nil{
                 myMovie["backdrop_path"] = movie["backdrop_path"] as? String
             }
+            myMovie.saveInBackground { (success, error) in
+                if error != nil {
+                    self.showAlert("Network", "Please check Network connection and try again")
+                } else{
+                    print("Success Added")
+                }
+            }
+            
             
         } else {
             showAlert("Not a Flixer", "You are no currently signied in, Please Sign in")
