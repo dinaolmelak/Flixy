@@ -551,9 +551,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="tfv-wa-dL7" id="nDN-KC-e0w"/>
-                                            <outlet property="movieLabel" destination="Gj0-tz-WVU" id="jqv-fa-gnV"/>
-                                            <outlet property="profilePic" destination="ggx-YJ-Yuu" id="c0n-l1-1cH"/>
+                                            <outlet property="movieDescriptionLabel" destination="tfv-wa-dL7" id="e6F-WX-9gQ"/>
+                                            <outlet property="movieProfilePic" destination="ggx-YJ-Yuu" id="JLX-po-31a"/>
+                                            <outlet property="movieTitleLabel" destination="Gj0-tz-WVU" id="KZD-Px-fwZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
