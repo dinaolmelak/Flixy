@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 import AlamofireImage
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -16,11 +17,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var movie: [String: Any]!
     var movieID = Int()
     var similarMovies = [[String: Any]]()
-//    @IBOutlet weak var backgroundPosterImageView: UIImageView! // found in BGcell
-//    @IBOutlet weak var posterImageView: UIImageView!  -|-> found in DetailCell
-//    @IBOutlet weak var movieTitleLabel: UILabel!       |
-//    @IBOutlet weak var movieOverviewLabel: UILabel!    |
-//    @IBOutlet weak var movieDateLabel: UILabel!       _|
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +84,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return similarMovies.count + 1
+    }
+    @IBAction func didTapAddMovie(_ sender: Any) {
+        saveMovie()
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -162,6 +161,38 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         trailerSegue.movie = movie
         
     }
-    
 
+    func showAlert(_ title: String,_ message: String){
+           let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+           alert.addAction(alertAction)
+           present(alert, animated: true, completion: nil)
+    }
+    
+    func saveMovie(){
+        if PFUser.current() != nil {
+            let myMovie = PFObject(className: "MyMovies")
+            myMovie["title"] = movie["title"] as? String
+            myMovie["release_date"] = movie["release_date"] as? String
+            myMovie["overview"] = movie["overview"] as? String
+            myMovie["movie_id"] = movieID
+            if (movie["poster_path"] as? String) != nil {
+                myMovie["poster_path"] = movie["poster_path"] as? String
+            }
+            if (movie["backdrop_path"] as? String) != nil{
+                myMovie["backdrop_path"] = movie["backdrop_path"] as? String
+            }
+            myMovie.saveInBackground { (success, error) in
+                if error != nil {
+                    self.showAlert("Network", "Please check Network connection and try again")
+                } else{
+                    print("Success Added")
+                }
+            }
+            
+            
+        } else {
+            showAlert("Not a Flixer", "You are no currently signied in, Please Sign in")
+        }
+    }
 }
